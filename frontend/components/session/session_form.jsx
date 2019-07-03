@@ -194,7 +194,7 @@ class SessionForm extends React.Component {
     document.getElementById('password-input').classList.remove('input-error');
   }
 
-  demoLogin(e) {
+  async demoLogin(e) {
     e.preventDefault();
 
     const demoUser = {
@@ -202,22 +202,26 @@ class SessionForm extends React.Component {
       password: 'letsplayboardgames'
     };
 
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
+
     document.getElementById('email-input').focus();
     for (let i = 1; i <= demoUser.email.length; i++) {
-      setTimeout(() => this.setState({ email: demoUser.email.substr(0, i) }), 50 * i);
+      this.setState({ email: demoUser.email.substr(0, i) });
+      await sleep(50);
     }
 
-    setTimeout(() => {
-      document.getElementById('password-input').focus();
-      for (let i = 1; i <= demoUser.password.length; i++) {
-        setTimeout(() => this.setState({ password: demoUser.password.substr(0, i) }), 50 * i);
-      }
-    }, demoUser.email.length * 50 + 250);
+    await sleep(250);
 
-    setTimeout(() => {
-      document.getElementById('session-submit-btn').click();
-      document.getElementById('password-input').blur();
-    }, (demoUser.email.length + demoUser.password.length) * 50 + 500);
+    document.getElementById('password-input').focus();
+    for (let i = 1; i <= demoUser.password.length; i++) {
+      this.setState({ password: demoUser.password.substr(0, i) });
+      await sleep(50);
+    }
+
+    await sleep(250);
+
+    document.getElementById('session-submit-btn').click();
+    document.getElementById('password-input').blur();
   }
 }
 
