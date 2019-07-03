@@ -22,11 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.login = SessionActions.login;
-  window.signup = SessionActions.signup;
-  window.logout = SessionActions.logout;
-
   ReactDOM.render(<Root store={store}/>, root);
 });
