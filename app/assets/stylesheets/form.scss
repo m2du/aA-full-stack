@@ -1,0 +1,175 @@
+#session-wrapper {
+    min-height: 700px;
+    width: 80%;
+    height: 100%;
+    max-width: 1080px;
+    max-height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#session-wrapper>div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 150px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    transform: scale(1) translateY(0) translateX(0);
+}
+
+#session-content {
+    width: 480px;
+    padding: 40px;
+    font-size: 18px;
+    color: #72767d;
+    background: #36393f;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#session-content h2 {
+    color: white;
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+#session-content #subtitle {
+    color: #72767d;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+#session-form {
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+    color: #b9bbbe;
+}
+
+#session-form h5 {
+    letter-spacing: .5px;
+    flex: 1;
+    margin-bottom: 8px;
+    line-height: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.input-item {
+    margin-bottom: 20px;
+}
+
+.input-item input {
+    color: #f6f6f7;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    height: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    transition: background-color .15s ease, border 0.15s ease;
+    font-size: 16px;
+}
+
+#session-submit-btn {
+    color: white;
+    background-color: #7289da;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    width: 100%;
+    height: 44px;
+    min-width: 130px;
+    min-height: 44px;
+    transition: background-color .17s ease, color .17s ease;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 2px 16px;
+}
+
+#session-submit-btn:hover {
+    cursor: pointer;
+    background-color: #667BC4;
+}
+
+.form-change-option {
+    margin-top: 4px;
+}
+
+.form-change-option small {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.form-change-option a {
+    color: #7289da;
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: bottom;
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+}
+
+.text-error {
+    color: #f04747;
+}
+
+.text-error span {
+    font-style: italic;
+    text-transform: none;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.input-item .input-error {
+    border-color: #f04747;
+}
+
+#session-bg {
+    width: 1705px;
+    height: 959px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: opacity .4s ease;
+    opacity: 1;
+}
+
+.form-change-option button {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #7289da;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+}

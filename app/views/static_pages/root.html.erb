@@ -1,1 +1,17 @@
 <div id='root'></div>
+
+<% if logged_in? %>
+  <script type="text/javascript">
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %></script>
+<% end %>
+
+<script>
+
+window.images = {
+  sessionBg: "<%= asset_path('session_bg.jpg') %>"
+};
+
+</script>
