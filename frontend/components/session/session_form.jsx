@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     if (this.inputsFilled()) {
       this.props.submitUser(this.state).then(
-        () => console.log("success"),
+        () => {},
         () => {
           this.resetLabels();
           this.displayErrors();
