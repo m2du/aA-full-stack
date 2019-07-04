@@ -1,3 +1,9 @@
+#splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #splash-header {
     height: 72px;
     color: white;
@@ -5,9 +11,8 @@
     font-weight: 400;
     padding: 8px 0;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    width: 100%;
 }
 
 #splash-nav {
@@ -18,6 +23,28 @@
     position: relative;
     height: 100%;
     align-items: center;
+    box-sizing: border-box;
+}
+
+#left-nav {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo-img {
+    height: 36px;
+}
+
+#right-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#right-nav ul {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  list-style: none;
 }
 
 #login-btn {
@@ -129,94 +156,94 @@ main {
 }
 
 #circle-left {
-  margin-left: -359px;
-  bottom: 530px;
+    margin-left: -359px;
+    bottom: 530px;
 }
 
 #circle-right {
-  margin-left: 576px;
-  bottom: 280px;
+    margin-left: 576px;
+    bottom: 280px;
 }
 
 #circle-bot {
-  margin-left: -199px;
-  bottom: 88px;
+    margin-left: -199px;
+    bottom: 88px;
 }
 
 #square-bot {
-  margin-left: 17px;
-  bottom: 92px;
+    margin-left: 17px;
+    bottom: 92px;
 }
 
 #square-mid {
-  margin-left: 431px;
-  bottom: 400px;
+    margin-left: 431px;
+    bottom: 400px;
 }
 
 #square-top {
-  margin-left: 331px;
-  bottom: 600px;
+    margin-left: 331px;
+    bottom: 600px;
 }
 
 #x-mid {
-  margin-left: 101px;
-  bottom: 440px;
+    margin-left: 101px;
+    bottom: 440px;
 }
 
 #x-right {
-  margin-left: 541px;
-  bottom: 220px;
+    margin-left: 541px;
+    bottom: 220px;
 }
 
 #x-left {
-  margin-left: -579px;
-  bottom: 510px;
+    margin-left: -579px;
+    bottom: 510px;
 }
 
 .splash-fg-image {
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transition: all .5s ease;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transition: all .5s ease;
 }
 
 #splash-potion {
-  margin-left: -609px;
-  z-index: 1;
+    margin-left: -609px;
+    z-index: 1;
 }
 
 #splash-shield {
-  margin-left: 423px;
+    margin-left: 423px;
 }
 
 #splash-question {
-  margin-left: -234px;
-  bottom: 532px;
+    margin-left: -234px;
+    bottom: 532px;
 }
 
 #splash-desktop {
-  margin-left: -289.5px;
+    margin-left: -289.5px;
 }
 
 #splash-android {
-  margin-left: -548px;
-  z-index: 2;
+    margin-left: -548px;
+    z-index: 2;
 }
 
 #splash-iphone {
-  margin-left: -401.5px;
+    margin-left: -401.5px;
 }
 
 #splash-gamepad {
-  margin-left: -255px;
+    margin-left: -255px;
 }
 
 #splash-laptop {
-  margin-left: -4px;
+    margin-left: -4px;
 }
 
 #splash-headphone {
-  margin-left: 270px;
-  bottom: 142px;
-  transform: scale(.75);
+    margin-left: 270px;
+    bottom: 142px;
+    transform: scale(.75);
 }

@@ -12,6 +12,20 @@
     left: 0;
 }
 
+#session-wrapper>a {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    margin-left: 0;
+    z-index: 1;
+}
+
+#session-wrapper img {
+    height: 36px;
+    width: auto;
+    cursor: pointer;
+}
+
 #session-wrapper>div {
     display: flex;
     align-items: center;

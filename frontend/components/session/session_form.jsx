@@ -29,6 +29,9 @@ class SessionForm extends React.Component {
           </div>
         </div>
         <div id='session-wrapper'>
+          <Link id='logo-link' to='/'>
+            <img src={window.images.logo}/>
+          </Link>
           <div>
             <div id='session-content'>
               {(formType === 'login') ?
@@ -93,9 +96,11 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
     if (this.inputsFilled()) {
+      console.log("filled");
       this.props.submitUser(this.state).then(
-        () => {},
+        () => this.props.history.push('/home'),
         () => {
           this.resetLabels();
           this.displayErrors();
@@ -107,12 +112,12 @@ class SessionForm extends React.Component {
   inputsFilled() {
     this.resetLabels();
 
-    let filled = true;
+    let complete = true;
     let span;
     
     const emailInput = document.getElementById('email-input');
     if (emailInput.value.length === 0) {
-      filled = false;
+      complete = false;
       const emailLabel = document.getElementById('email-label');
       span = document.createElement('span');
       span.append(' - This field is required');
@@ -122,9 +127,9 @@ class SessionForm extends React.Component {
     }
     
     if (this.props.formType === 'signup') {
-      filled = false;
       const usernameInput = document.getElementById('username-input')
       if (usernameInput.value.length === 0) {
+        complete = false;
         const usernameLabel = document.getElementById('username-label');
         span = document.createElement('span');
         span.append(' - This field is required');
@@ -136,7 +141,7 @@ class SessionForm extends React.Component {
     
     const passwordInput = document.getElementById('password-input');
     if (passwordInput.value.length === 0) {
-      filled = false;
+      complete = false;
       const passwordLabel = document.getElementById('password-label');
       span = document.createElement('span');
       span.append(' - This field is required');
@@ -145,14 +150,16 @@ class SessionForm extends React.Component {
       passwordInput.classList.add('input-error');
     }
 
-    return filled;
+    return complete;
   }
 
   displayErrors() {
     const errorFlag = this.props.errors[0];
     const errors = [' - Email does not exist.',
+                    ' - Email is already taken.',
                     ' - Password does not match.',
-                    ' - Email is already taken.',];
+                    ' - Password is too short (minimum 10 characters).'
+                  ];
 
     let label;
     const span = document.createElement('span');
@@ -160,16 +167,14 @@ class SessionForm extends React.Component {
 
     switch (errorFlag) {
       case 0:
+      case 1:
         label = document.getElementById('email-label');
         document.getElementById('email-input').classList.add('input-error');
-        break;
-      case 1:
-        label = document.getElementById('password-label')
-        document.getElementById('password-input').classList.add('input-error');
         break;
       case 2:
-        label = document.getElementById('email-label');
-        document.getElementById('email-input').classList.add('input-error');
+      case 3:
+        label = document.getElementById('password-label')
+        document.getElementById('password-input').classList.add('input-error');
         break;
       default:
         break;
