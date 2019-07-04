@@ -41,10 +41,10 @@
 }
 
 #right-nav ul {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    list-style: none;
 }
 
 #login-btn {
@@ -246,4 +246,63 @@ main {
     margin-left: 270px;
     bottom: 142px;
     transform: scale(.75);
+}
+
+.float-img {
+    position: absolute;
+    left: 50%;
+    transition: all .5s ease;
+    -webkit-animation-name: float-anim;
+    animation-name: float-anim;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out
+}
+
+@keyframes float-anim {
+    0% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0)
+    }
+    to {
+        -webkit-transform: translate3d(0, 4px, 0);
+        transform: translate3d(0, 4px, 0)
+    }
+}
+
+@-webkit-keyframes float-anim {
+    0% {
+        -webkit-transform: translate3d(0, -1px, 0);
+        transform: translate3d(0, -1px, 0)
+    }
+    to {
+        -webkit-transform: translate3d(0, 1px, 0);
+        transform: translate3d(0, 1px, 0)
+    }
+}
+
+#splash-bomb {
+    margin-left: -481px;
+    bottom: 335px;
+    animation-delay: .4s;
+}
+
+#splash-coin-1 {
+    margin-left: -428px;
+    bottom: 300px;
+}
+
+#splash-coin-2 {
+    margin-left: 80px;
+    bottom: 530px;
+}
+
+#splash-floppy {
+    margin-left: 250px;
+    bottom: 392px;
 }

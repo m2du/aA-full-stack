@@ -48,6 +48,11 @@ const Splash = (props) => (
         <img id='x-mid' className='splash-bg-deco' src={window.images.splashX} />
         <img id='x-right' className='splash-bg-deco' src={window.images.splashX} />
         <img id='x-left' className='splash-bg-deco' src={window.images.splashX} />
+        {/* moving images */}
+        <img id='splash-bomb' className='float-img' src={window.images.splashBomb} />
+        <img id='splash-coin-1' className='float-img' src={window.images.splashCoin} />
+        <img id='splash-coin-2' className='float-img' src={window.images.splashCoin} />
+        <img id='splash-floppy' className='float-img' src={window.images.splashFloppy} />
         {/* foreground images */}
         <img id='splash-potion' className='splash-fg-image' src={window.images.splashPotion} />
         <img id='splash-shield' className='splash-fg-image' src={window.images.splashShield} />
