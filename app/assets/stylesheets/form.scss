@@ -149,14 +149,35 @@
     border-color: #f04747;
 }
 
+#session-bg-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 #session-bg {
-    width: 1705px;
-    height: 959px;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 0;
     right: 0;
-    transition: opacity .4s ease;
     opacity: 1;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+
+#session-bg img {
+    opacity: 1;
+    text-indent: -9999px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: opacity .2s linear .2s;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .form-change-option button {

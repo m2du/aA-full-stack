@@ -23,7 +23,11 @@ class SessionForm extends React.Component {
     const buttonText = (formType === 'login') ? 'Login' : 'Continue';
     return (
       <div>
-        <img id='session-bg' src={window.images.sessionBg}/>
+        <div id='session-bg-wrapper'>
+          <div id='session-bg'>
+            <img src={window.images.sessionBg}/>
+          </div>
+        </div>
         <div id='session-wrapper'>
           <div>
             <div id='session-content'>

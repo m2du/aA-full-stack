@@ -1,27 +1,222 @@
 #splash-header {
-  height: 72px;
-  color: white;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 8px 0;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    height: 72px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 8px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #splash-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    position: relative;
+    height: 100%;
+    align-items: center;
 }
 
 #login-btn {
-  color: white;
-  border: 2px solid hsla(0, 0%, 100%, 0.8);
-  padding: 5px 17px 7px;
-  border-radius: 20px;
-  line-height: 24px;
-  margin-right: 18px;
-  text-decoration: none;
+    color: white;
+    border: 2px solid hsla(0, 0%, 100%, 0.8);
+    padding: 5px 17px 7px;
+    border-radius: 20px;
+    line-height: 24px;
+    margin-right: 18px;
+    text-decoration: none;
+}
+
+#splash-title {
+    color: white;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0;
+}
+
+#splash-blurb {
+    color: hsla(0, 0%, 100%, 0.6);
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+main {
+    box-sizing: border-box;
+    padding: 72px 50px 0;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+}
+
+#splash-images-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+#splash-images-inner {
+    position: relative;
+    height: 638px;
+    overflow: hidden;
+    user-select: none;
+}
+
+#splash-shadow {
+    left: 50%;
+    margin-left: -650px;
+    bottom: 0;
+    border-radius: 50px;
+    width: 1300px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    transition: all .5s ease;
+}
+
+.splash-bg-deco {
+    position: absolute;
+    left: 50%;
+    opacity: .3;
+    transition: all .5s ease;
+}
+
+#triangle-left {
+    margin-left: -579px;
+    bottom: 300px;
+}
+
+#triangle-top {
+    margin-left: 31px;
+    bottom: 550px;
+}
+
+#triangle-mid {
+    margin-left: -289px;
+    bottom: 448px;
+}
+
+#dot-1 {
+    margin-left: -599px;
+    bottom: 200px;
+}
+
+#dot-2 {
+    margin-left: -319px;
+    bottom: 600px;
+}
+
+#dot-3 {
+    margin-left: 181px;
+    bottom: 500px;
+}
+
+#dot-4 {
+    margin-left: 531px;
+    bottom: 600px;
+}
+
+#dot-5 {
+    margin-left: 621px;
+    bottom: 140px;
+}
+
+#circle-left {
+  margin-left: -359px;
+  bottom: 530px;
+}
+
+#circle-right {
+  margin-left: 576px;
+  bottom: 280px;
+}
+
+#circle-bot {
+  margin-left: -199px;
+  bottom: 88px;
+}
+
+#square-bot {
+  margin-left: 17px;
+  bottom: 92px;
+}
+
+#square-mid {
+  margin-left: 431px;
+  bottom: 400px;
+}
+
+#square-top {
+  margin-left: 331px;
+  bottom: 600px;
+}
+
+#x-mid {
+  margin-left: 101px;
+  bottom: 440px;
+}
+
+#x-right {
+  margin-left: 541px;
+  bottom: 220px;
+}
+
+#x-left {
+  margin-left: -579px;
+  bottom: 510px;
+}
+
+.splash-fg-image {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transition: all .5s ease;
+}
+
+#splash-potion {
+  margin-left: -609px;
+  z-index: 1;
+}
+
+#splash-shield {
+  margin-left: 423px;
+}
+
+#splash-question {
+  margin-left: -234px;
+  bottom: 532px;
+}
+
+#splash-desktop {
+  margin-left: -289.5px;
+}
+
+#splash-android {
+  margin-left: -548px;
+  z-index: 2;
+}
+
+#splash-iphone {
+  margin-left: -401.5px;
+}
+
+#splash-gamepad {
+  margin-left: -255px;
+}
+
+#splash-laptop {
+  margin-left: -4px;
+}
+
+#splash-headphone {
+  margin-left: 270px;
+  bottom: 142px;
+  transform: scale(.75);
 }
