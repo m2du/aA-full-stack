@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_223545) do
+ActiveRecord::Schema.define(version: 2019_07_05_190249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2019_07_04_223545) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_guilds_on_owner_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "guild_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "guild_id"], name: "index_memberships_on_user_id_and_guild_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +45,6 @@ ActiveRecord::Schema.define(version: 2019_07_04_223545) do
   end
 
   add_foreign_key "guilds", "users", column: "owner_id", on_delete: :restrict
+  add_foreign_key "memberships", "guilds", on_delete: :cascade
+  add_foreign_key "memberships", "users", on_delete: :cascade
 end

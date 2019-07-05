@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  username        :string           not null
+#  tag             :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -7,7 +21,9 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token, :generate_random_tag
 
-  has_many :guilds, foreign_key: :owner_id
+  has_many :owned_guilds, foreign_key: :owner_id, class_name: :Guild
+  has_many :memberships
+  has_many :guilds, through: :memberships, source: :guild
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

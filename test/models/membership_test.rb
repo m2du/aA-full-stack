@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: guilds
+# Table name: memberships
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
-#  owner_id   :integer          not null
+#  guild_id   :integer          not null
+#  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class GuildTest < ActiveSupport::TestCase
+class MembershipTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
