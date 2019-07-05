@@ -1,5 +1,7 @@
 import React from 'react';
 
+import GuildIndexContainer from '../guild/guild_list_container';
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class Main extends React.Component {
       <div id='main-app'>
         <h1>{user.username + "#" + user.tag}</h1>
         <button onClick={this.logout}>Logout</button>
+        <GuildIndexContainer />
       </div>
     );
   }

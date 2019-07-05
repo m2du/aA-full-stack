@@ -1,6 +1,6 @@
 import {
   RECEIVE_ALL_GUILDS,
-  RECEIVE_GUILDS,
+  RECEIVE_GUILD,
   DESTROY_GUILD
 } from '../actions/guild_actions';
 
@@ -10,11 +10,11 @@ const guildsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_GUILDS:
       return action.guilds;
-    case RECEIVE_GUILDS:
+    case RECEIVE_GUILD:
       return Object.assign({}, state, {[action.guild.id]: action.guild});
     case DESTROY_GUILD:
       let newState = Object.assign({}, state);
-      delete newState[action.guild.id];
+      delete newState[action.guildId];
       return newState;
     default:
       return state;

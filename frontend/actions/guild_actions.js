@@ -48,3 +48,7 @@ export const destroyGuild = id => dispatch => (
     () => dispatch(removeGuild(id))
   )
 );
+
+window.receiveAllGuilds = receiveAllGuilds;
+window.receiveGuild = receiveGuild;
+window.removeGuild = removeGuild;
