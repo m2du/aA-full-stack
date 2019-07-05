@@ -7,6 +7,8 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token, :generate_random_tag
 
+  has_many :guilds, foreign_key: :owner_id
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil

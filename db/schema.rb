@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_213438) do
+ActiveRecord::Schema.define(version: 2019_07_04_223545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guilds", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_guilds_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -28,4 +36,5 @@ ActiveRecord::Schema.define(version: 2019_07_02_213438) do
     t.index ["username", "tag"], name: "index_users_on_username_and_tag", unique: true
   end
 
+  add_foreign_key "guilds", "users", column: "owner_id", on_delete: :restrict
 end
