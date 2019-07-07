@@ -100,7 +100,7 @@ class SessionForm extends React.Component {
     if (this.inputsFilled()) {
       console.log("filled");
       this.props.submitUser(this.state).then(
-        () => this.props.history.push('/home'),
+        () => this.props.history.push('/channels/home'),
         () => {
           this.resetLabels();
           this.displayErrors();

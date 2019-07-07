@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GuildIndexContainer from '../guild/guild_list_container';
+import AddGuildModal from '../guild/modal/add_guild_modal';
 
 class Main extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Main extends React.Component {
         <h1>{user.username + "#" + user.tag}</h1>
         <button onClick={this.logout}>Logout</button>
         <GuildIndexContainer />
+        <AddGuildModal />
       </div>
     );
   }

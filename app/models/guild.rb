@@ -22,4 +22,6 @@ class Guild < ApplicationRecord
   has_many :users,
     through: :memberships,
     source: :user
+
+  has_one_attached :image
 end
