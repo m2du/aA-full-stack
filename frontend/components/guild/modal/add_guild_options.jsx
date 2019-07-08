@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AddGuildOptions = () => (
+export default () => (
   <div id='add-guild-options' className='add-guild-component'
     style={{ backgroundImage: `url(${window.images.addGuildBgLeft}), url(${window.images.addGuildBgRight})` }}>
     <header className='add-guild-header'>Oh, another server huh?</header>
@@ -22,18 +22,11 @@ export const AddGuildOptions = () => (
   </div>
 );
 
-export const CreateGuildForm = () => (
-  <div className='add-guild-component'>
-    <form>
-
-    </form>
-  </div>
-);
-
 const clickCreate = () => {
   document.getElementById('add-guild-options').classList.add('hide-left');
-}
+  document.getElementById('create-guild-option').classList.remove('hide-right');
+};
 
 const clickJoin = () => {
   document.getElementById('add-guild-options').classList.add('hide-left');
-}
+};

@@ -1,0 +1,103 @@
+// Place all the styles related to the api/guilds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#home-svg-wrapper {
+    display: inline-block;
+    width: 28px;
+    height: 20px;
+    background: inherit;
+}
+
+#guild-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%;
+    vertical-align: baseline;
+    align-items: center;
+    width: 72px;
+}
+
+.guild-link {
+    background: #303136;
+    color: #b9bbbe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    transition: border-radius .25s ease-in, background-color .15s ease-out, color .15s ease-out;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.guild-link:hover {
+    border-radius: 32%;
+    background-color: #7289da;
+    color: white;
+    transition: border-radius .15s ease-out, background-color .15s ease-out, color .15s ease-out;
+}
+
+.guild-container:hover {
+    ~.guild-select-bar span {
+        height: 20px;
+        opacity: .7;
+        transform: translate3d(0px, 0px, 0px);
+        transition: height .2s ease-in, transform .2s ease-in;
+    }
+}
+
+.line-wrapper {
+    position: relative;
+    margin: 0 0 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.guild-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 72px;
+    .guild-select-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 8px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        span {
+            opacity: .7;
+            display: block;
+            position: absolute;
+            background-color: white;
+            width: 8px;
+            height: 8px;
+            border-radius: 0 4px 4px 0;
+            margin-left: -4px;
+            transform: translate3d(-4px, 0px, 0px);
+            transition: height .2s ease-out, transform .2s ease-out;
+        }
+    }
+}
+
+.guild-separator {
+    height: 2px;
+    width: 32px;
+    border-radius: 1px;
+    background: #2f3136;
+}
+
+button.guild-link {
+    border: none;
+}
+
+button.guild-link:hover {
+    background-color: #43b581;
+    #plus-svg path {
+        fill: white;
+        transition: fill .15s ease-out;
+    }
+}
