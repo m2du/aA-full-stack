@@ -9,13 +9,21 @@
 }
 
 #guild-list {
+    background-color: #202225;
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    height: 100%;
     vertical-align: baseline;
     align-items: center;
     width: 72px;
+    flex-shrink: 0;
+    position: relative;
+    > * {
+        margin-bottom: 8px;
+    }
+}
+
+#guild-list:first-child {
+    margin-top: 8px;
 }
 
 .guild-link {
@@ -51,7 +59,6 @@
 
 .line-wrapper {
     position: relative;
-    margin: 0 0 8px;
     display: flex;
     justify-content: center;
 }

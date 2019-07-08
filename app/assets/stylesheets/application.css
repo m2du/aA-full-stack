@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ #main-app {
+   display: flex;
+   flex: 1 1 auto;
+   justify-content: flex-start;
+   align-items: stretch;
+   height: 100vh;
+ }

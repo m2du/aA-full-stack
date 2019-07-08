@@ -1,0 +1,30 @@
+#channel-detail-view {
+    background-color: #36393f;
+    display: flex;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+}
+
+#channel-header {
+    background: #36393f;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 1.5px 0 rgba(0, 0, 0, .05), 0 2px 0 rgba(0, 0, 0, .05);
+    color: #b9bbbe;
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 100;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 0 8px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#channel-panel {
+  background-color: #36393f;
+  display: flex;
+  flex: 1 1 auto;
+}
