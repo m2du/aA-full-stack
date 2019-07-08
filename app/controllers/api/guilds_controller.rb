@@ -8,6 +8,7 @@ class Api::GuildsController < ApplicationController
     @guild.owner_id = current_user.id
 
     if @guild.save
+      Membership.new(guild_id: @guild.id, user_id: current_user.id).save
       render :show
     else
       render json: @guild.errors.full_messages
@@ -37,6 +38,6 @@ class Api::GuildsController < ApplicationController
   private
 
   def guild_params
-    params.require(:guild).permit(:name)
+    params.require(:guild).permit(:name, :image)
   end
 end

@@ -16,7 +16,9 @@ export const createGuild = guild => (
   $.ajax({
     method: 'post',
     url: 'api/guilds',
-    data: {guild}
+    data: guild,
+    contentType: false,
+    processData: false
   })
 );
 
