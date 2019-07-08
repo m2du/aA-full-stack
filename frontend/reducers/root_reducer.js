@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import SessionReducer from '../reducers/session_reducer';
-import EntitiesReducer from '../reducers/entities_reducer';
-import ErrorsReducer from '../reducers/errors/errors_reducer';
+import SessionReducer from './session_reducer';
+import EntitiesReducer from './entities_reducer';
+import ErrorsReducer from './errors/errors_reducer';
+import UIReducer from './ui/ui_reducer';
 
 export default combineReducers({
   session: SessionReducer,
   entities: EntitiesReducer,
-  errors: ErrorsReducer
+  errors: ErrorsReducer,
+  ui: UIReducer
 });

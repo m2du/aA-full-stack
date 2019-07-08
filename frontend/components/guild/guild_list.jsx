@@ -17,7 +17,7 @@ class GuildList extends React.Component {
           <div className='guild-separator'></div>
         </div>
         {guilds.map(guild => <GuildListItem key={guild.id} guild={guild}/>)}
-        <AddGuildItem />
+        <AddGuildItem showAddGuild={this.props.showAddGuild}/>
       </div>
     );
   }

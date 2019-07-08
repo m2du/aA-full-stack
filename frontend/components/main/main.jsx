@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GuildIndexContainer from '../guild/guild_list_container';
+import GuildListContainer from '../guild/guild_list_container';
 import AddGuildModal from '../guild/modal/add_guild_modal';
 
 class Main extends React.Component {
@@ -19,8 +19,8 @@ class Main extends React.Component {
       <div id='main-app'>
         <h1>{user.username + "#" + user.tag}</h1>
         <button onClick={this.logout}>Logout</button>
-        <GuildIndexContainer />
-        <AddGuildModal />
+        <GuildListContainer />
+        { (this.props.addGuild) ? <AddGuildModal hideAddGuild={this.props.hideAddGuild}/> : null }
       </div>
     );
   }
