@@ -36,3 +36,10 @@ export const destroyGuild = id => (
     url: `api/guilds/${id}`
   })
 );
+
+export const fetchGuildMembers = guildId => (
+  $.ajax({
+    method: 'get',
+    url: `api/guilds/${guildId}/users`
+  })
+)

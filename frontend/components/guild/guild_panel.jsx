@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DiscordSVG from '../discord_svg';
+import { getUserColor } from '../../utils/user_color_util';
 
 class GuildPanel extends React.Component {
   constructor(props) {
@@ -19,14 +20,14 @@ class GuildPanel extends React.Component {
         </div>
         <div id='user-bar'>
           <div className='user-status-icon'
-            style={{ backgroundColor: '#54B681' }}>
+            style={{ backgroundColor: getUserColor(user.tag) }}>
             <DiscordSVG />
           </div>
           <div id='user-bar-nametag'>
             <p id='user-bar-name'>{user.username}</p>
             <p id='user-bar-tag'>#{user.tag}</p>
           </div>
-          <i class="fas fa-power-off" onClick={() => this.props.logout()}></i>
+          <i className="fas fa-power-off" onClick={() => this.props.logout()}></i>
         </div>
       </div>
     )

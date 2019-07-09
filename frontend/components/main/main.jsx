@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import { ProtectedRoute } from '../../utils/route_util';
 import GuildListContainer from '../guild/guild_list_container';
-import GuildDetail from '../guild/guild_detail';
+import GuildDetailContainer from '../guild/guild_detail_container';
 import AddGuildModal from '../guild/modal/add_guild_modal';
 
 class Main extends React.Component {
@@ -17,11 +16,10 @@ class Main extends React.Component {
   }
 
   render() {
-    const {user} = this.props;
     return (
       <div id='main-app'>
         <GuildListContainer />
-        <Route path='/channels/:guildId' component={GuildDetail} />
+        <Route path='/channels/:guildId' component={GuildDetailContainer} />
         { (this.props.addGuild) ? <AddGuildModal hideAddGuild={this.props.hideAddGuild}/> : null }
       </div>
     );

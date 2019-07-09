@@ -8,6 +8,27 @@ class GuildDetail extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    let guildId = this.props.match.params.guildId;
+    if (guildId === 'home') {
+      return;
+    } else {
+      this.props.fetchGuild(guildId);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    let guildId = this.props.match.params.guildId;
+    
+    if (prevProps.match.params.guildId == guildId) return;
+
+    if (guildId === 'home') {
+      return;
+    } else {
+      this.props.fetchGuild(guildId);
+    }
+  }
+
   render() {
     const guildId = this.props.match.params.guildId;
     return (

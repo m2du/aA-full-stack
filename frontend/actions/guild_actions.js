@@ -1,5 +1,6 @@
 import * as GuildApiUtil from '../utils/guild_api_util';
 
+export const RECEIVE_GUILD_MEMBERS = 'RECEIVE_GUILD_MEMBERS';
 export const RECEIVE_ALL_GUILDS = 'RECEIVE_ALL_GUILDS';
 export const RECEIVE_GUILD = 'RECEIVE_GUILD';
 export const DESTROY_GUILD = 'DESTROY_GUILD';
@@ -17,6 +18,11 @@ const receiveGuild = guild => ({
 const removeGuild = guildId => ({
   type: DESTROY_GUILD,
   guildId
+});
+
+const receiveGuildMembers = users => ({
+  type: RECEIVE_GUILD_MEMBERS,
+  users
 });
 
 export const fetchAllGuilds = () => dispatch => (
@@ -49,6 +55,8 @@ export const destroyGuild = id => dispatch => (
   )
 );
 
-window.receiveAllGuilds = receiveAllGuilds;
-window.receiveGuild = receiveGuild;
-window.removeGuild = removeGuild;
+export const fetchGuildMembers = id => dispatch => (
+  GuildApiUtil.fetchGuildMembers(id).then(
+    users => dispatch(receiveGuildMembers(users))
+  )
+);

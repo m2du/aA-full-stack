@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import UserReducer from './users_reducer';
-import GuildReducer from './guilds_reducer';
+import UsersReducer from './users_reducer';
+import GuildsReducer from './guilds_reducer';
+import MembershipsReducer from './memberships_reducer';
 
 export default combineReducers({
-  users: UserReducer,
-  guilds: GuildReducer
+  users: UsersReducer,
+  guilds: GuildsReducer,
+  memberships: MembershipsReducer
 });

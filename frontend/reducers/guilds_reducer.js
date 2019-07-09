@@ -11,7 +11,8 @@ const guildsReducer = (state = {}, action) => {
     case RECEIVE_ALL_GUILDS:
       return action.guilds;
     case RECEIVE_GUILD:
-      return Object.assign({}, state, {[action.guild.id]: action.guild});
+      let guild = action.guild.guild;
+      return Object.assign({}, state, {[guild.id]: guild});
     case DESTROY_GUILD:
       let newState = Object.assign({}, state);
       delete newState[action.guildId];

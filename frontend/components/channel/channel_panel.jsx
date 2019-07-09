@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MessageIndex from '../message/message_index';
-import UserIndex from '../user/user_index';
+import UserIndexContainer from '../user/user_index_container';
 
 class ChannelPanel extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ChannelPanel extends React.Component {
     return (
       <div id='channel-panel'>
         <MessageIndex />
-        <UserIndex />
+        <UserIndexContainer />
       </div>
     )
   }
