@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 10, allow_nil: true }
 
   attr_reader :password
-  after_initialize :ensure_session_token, :generate_random_tag
+  after_initialize :ensure_session_token, :ensure_tag
 
   has_many :owned_guilds, foreign_key: :owner_id, class_name: :Guild
   has_many :memberships
@@ -51,10 +51,14 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
+  def ensure_tag
+    self.tag ||= generate_random_tag
+  end
+
   def generate_random_tag
     nums = ('0'..'9').to_a
     tag = ''
     4.times { tag.concat(nums.sample) }
-    self.tag = tag
+    tag
   end
 end

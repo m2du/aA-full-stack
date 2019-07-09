@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GuildPanel from './guild_panel';
+import GuildPanelContainer from './guild_panel_container';
 import ChannelDetail from '../channel/channel_detail';
 
 class GuildDetail extends React.Component {
@@ -9,9 +9,10 @@ class GuildDetail extends React.Component {
   }
 
   render() {
+    const guildId = this.props.match.params.guildId;
     return (
       <div id='guild-detail-view'>
-        <GuildPanel />
+        <GuildPanelContainer guildId={guildId}/>
         <ChannelDetail />
       </div>
     )

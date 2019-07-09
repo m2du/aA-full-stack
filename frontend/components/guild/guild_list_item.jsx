@@ -16,7 +16,7 @@ class GuildListItem extends React.Component {
             { 
               (guild.id === 'home') ? 
               <div id='home-svg-wrapper'>
-                <DiscordSVG color='blue' />
+                <DiscordSVG />
               </div> :
               (guild.imageUrl) ? null :
               guild.name.split(' ').map(str => str[0]).join('')
