@@ -7,5 +7,15 @@ export const selectGuildMembers = (state, guildId) => {
     }
   });
 
+  members.sort((a, b) => {
+    if (a.username < b.username) {
+      return -1;
+    } else if (a.username > b.username) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
   return members;
 }
