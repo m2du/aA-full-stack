@@ -27,9 +27,8 @@ class CreateGuildOption extends React.Component {
     this.props.createGuild(formData).then(
       action => {
         this.props.hideAddGuild();
-        this.props.history.push(`/channels/${action.guild.id}`);
-      },
-      errors => console.log(errors)
+        this.props.history.push(`/channels/${action.guild.guild.id}`);
+      }
     );
   }
 

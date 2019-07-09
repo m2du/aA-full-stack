@@ -16,6 +16,7 @@ class GuildPanel extends React.Component {
         <div id='guild-content'>
           <header id='guild-header'>
             <span>{guildName}</span>
+            <img onClick={this.props.showInviteModal} src={window.images.inviteIcon} />
           </header>
         </div>
         <div id='user-bar'>

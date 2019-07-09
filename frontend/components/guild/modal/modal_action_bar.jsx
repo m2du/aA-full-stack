@@ -16,4 +16,5 @@ const clickBack = e => {
   e.preventDefault();
   document.getElementById('add-guild-options').classList.remove('hide-left');
   document.getElementById('create-guild-option').classList.add('hide-right');
+  document.getElementById('join-guild-option').classList.add('hide-right');
 };

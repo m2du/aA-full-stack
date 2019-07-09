@@ -12,6 +12,7 @@ class Api::InvitesController < ApplicationController
     invite = Invite.find_by(url: params[:id])
     if invite
       @guild = invite.guild
+      Membership.create!(guild_id: @guild.id, user_id: current_user.id)
       render '/api/guilds/show'
     else
       render json: ['Invalid invite'], status: 401

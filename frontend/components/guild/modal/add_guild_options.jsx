@@ -29,4 +29,5 @@ const clickCreate = () => {
 
 const clickJoin = () => {
   document.getElementById('add-guild-options').classList.add('hide-left');
+  document.getElementById('join-guild-option').classList.remove('hide-right');
 };

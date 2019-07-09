@@ -12,7 +12,6 @@ class UserIndex extends React.Component {
 
   render() {
     const users = this.props.users;
-    console.log(users);
     return (
       <div id='user-index'>
         <header id='user-list-header'>Users—{users.length}</header>

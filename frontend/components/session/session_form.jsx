@@ -98,7 +98,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     
     if (this.inputsFilled()) {
-      console.log("filled");
       this.props.submitUser(this.state).then(
         () => this.props.history.push('/channels/home'),
         () => {
