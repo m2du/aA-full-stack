@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :owned_guilds, foreign_key: :owner_id, class_name: :Guild
   has_many :memberships
   has_many :guilds, through: :memberships, source: :guild
+  has_many :messages, foreign_key: :author_id
 
   has_one_attached :image
 

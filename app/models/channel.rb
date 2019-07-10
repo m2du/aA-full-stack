@@ -13,4 +13,6 @@ class Channel < ApplicationRecord
   validates :guild_id, :name, presence: true
 
   belongs_to :guild
+
+  has_many :messages
 end

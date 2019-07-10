@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_220629) do
+ActiveRecord::Schema.define(version: 2019_07_10_214212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 2019_07_09_220629) do
     t.index ["user_id", "guild_id"], name: "index_memberships_on_user_id_and_guild_id", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "author_id", null: false
+    t.integer "channel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
@@ -88,4 +98,6 @@ ActiveRecord::Schema.define(version: 2019_07_09_220629) do
   add_foreign_key "invites", "guilds", on_delete: :cascade
   add_foreign_key "memberships", "guilds", on_delete: :cascade
   add_foreign_key "memberships", "users", on_delete: :cascade
+  add_foreign_key "messages", "channels", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "author_id", on_delete: :cascade
 end
