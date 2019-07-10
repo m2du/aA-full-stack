@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import GuildListContainer from '../guild/guild_list_container';
 import GuildDetailContainer from '../guild/guild_detail_container';
@@ -20,7 +20,10 @@ class Main extends React.Component {
     return (
       <div id='main-app'>
         <GuildListContainer />
-        <Route path='/channels/:guildId' component={GuildDetailContainer} />
+        <Switch>
+          <Route path='/channels/:guildId/:channelId' component={GuildDetailContainer} />
+          <Route path='/channels/:guildId' component={GuildDetailContainer} />
+        </Switch>
         { (this.props.addGuild) ? <AddGuildModal hideAddGuild={this.props.hideAddGuild}/> : null }
         { (this.props.showInvite) ? <InviteModalContainer /> : null }
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import DiscordSVG from '../discord_svg';
 import { getUserColor } from '../../utils/user_color_util';
+import ChannelIndexContainer from '../channel/channel_index_container';
 
 class GuildPanel extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class GuildPanel extends React.Component {
             <span>{guildName}</span>
             <img onClick={this.props.showInviteModal} src={window.images.inviteIcon} />
           </header>
+          <ChannelIndexContainer />
         </div>
         <div id='user-bar'>
           <div className='user-status-icon'

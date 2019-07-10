@@ -12,7 +12,7 @@ class GuildListItem extends React.Component {
         <div className='guild-container'>
           <Link className='guild-link' 
             style={{backgroundImage: `url(${imageUrl})`}}
-            to={`/channels/${guild.id}`}>
+            to={`/channels/${guild.id}`} replace>
             { 
               (guild.id === 'home') ? 
               <div id='home-svg-wrapper'>

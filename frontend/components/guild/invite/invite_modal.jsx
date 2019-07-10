@@ -9,7 +9,6 @@ class InviteModal extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.props.createGuildInvite(this.props.guild.id)
       .then(invite => this.setState({
         url: window.location.origin + '/#/join/' + invite.url

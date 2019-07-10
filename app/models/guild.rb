@@ -23,5 +23,7 @@ class Guild < ApplicationRecord
     through: :memberships,
     source: :user
 
+  has_many :channels
+
   has_one_attached :image
 end

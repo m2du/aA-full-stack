@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_180236) do
+ActiveRecord::Schema.define(version: 2019_07_09_220629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2019_07_09_180236) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.integer "guild_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guild_id"], name: "index_channels_on_guild_id"
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -75,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_180236) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "channels", "guilds", on_delete: :cascade
   add_foreign_key "guilds", "users", column: "owner_id", on_delete: :restrict
   add_foreign_key "invites", "guilds", on_delete: :cascade
   add_foreign_key "memberships", "guilds", on_delete: :cascade

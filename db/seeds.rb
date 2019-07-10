@@ -72,6 +72,7 @@ ActiveRecord::Base.transaction do
   Guild.create!(name: 'Private', owner_id: private_user.id)
 
   demo_guild = Guild.create!(name: 'Demo', owner_id: demo_user.id)
+  Channel.create!(guild_id: demo_guild.id, name: 'general')
   Membership.create!(guild_id: demo_guild.id, user_id: demo_user.id)
   Membership.create!(guild_id: demo_guild.id, user_id: tet_user.id)
   Membership.create!(guild_id: demo_guild.id, user_id: sora_user.id)
@@ -80,6 +81,7 @@ ActiveRecord::Base.transaction do
   disboard_guild = Guild.create!(name: 'Disboard', owner_id: tet_user.id)
   imageFile = open('https://disboard-seeds.s3-us-west-1.amazonaws.com/disboard_icon.jpg')
   disboard_guild.image.attach(io: imageFile, filename: 'disboard_icon.jpg')
+  Channel.create!(guild_id: disboard_guild.id, name: 'general')
   Membership.create!(guild_id: disboard_guild.id, user_id: tet_user.id)
   Membership.create!(guild_id: disboard_guild.id, user_id: sora_user.id)
   Membership.create!(guild_id: disboard_guild.id, user_id: shiro_user.id)

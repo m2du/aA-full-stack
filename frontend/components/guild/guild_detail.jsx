@@ -1,7 +1,7 @@
 import React from 'react';
 
 import GuildPanelContainer from './guild_panel_container';
-import ChannelDetail from '../channel/channel_detail';
+import ChannelDetailContainer from '../channel/channel_detail_container';
 
 class GuildDetail extends React.Component {
   constructor(props) {
@@ -9,11 +9,17 @@ class GuildDetail extends React.Component {
   }
 
   componentDidMount() {
+    console.log("mounted");
     let guildId = this.props.match.params.guildId;
     if (guildId === 'home') {
       return;
     } else {
-      this.props.fetchGuild(guildId);
+      this.props.fetchGuild(guildId).then(
+        action => {
+          let firstChannelId = Object.keys(action.guild.channels)[0];
+          this.props.history.replace(`/channels/${guildId}/${firstChannelId}`);
+        }
+      );
     }
   }
 
@@ -25,7 +31,12 @@ class GuildDetail extends React.Component {
     if (guildId === 'home') {
       return;
     } else {
-      this.props.fetchGuild(guildId);
+      this.props.fetchGuild(guildId).then(
+        action => {
+          let firstChannelId = Object.keys(action.guild.channels)[0];
+          this.props.history.replace(`/channels/${guildId}/${firstChannelId}`);
+        }
+      );
     }
   }
 
@@ -34,7 +45,7 @@ class GuildDetail extends React.Component {
     return (
       <div id='guild-detail-view'>
         <GuildPanelContainer guildId={guildId}/>
-        <ChannelDetail />
+        <ChannelDetailContainer />
       </div>
     )
   }

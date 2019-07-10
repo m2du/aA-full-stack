@@ -8,9 +8,10 @@ class ChannelDetail extends React.Component {
   }
 
   render() {
+    const channelName = (this.props.channel) ? this.props.channel.name : '';
     return (
       <div id='channel-detail-view'>
-        <header id='channel-header'></header>
+        <header id='channel-header'>{channelName}</header>
         <ChannelPanel />
       </div>
     );
