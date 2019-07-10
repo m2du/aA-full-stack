@@ -5,6 +5,7 @@ import GuildListContainer from '../guild/guild_list_container';
 import GuildDetailContainer from '../guild/guild_detail_container';
 import AddGuildModal from '../guild/modal/add_guild_modal';
 import InviteModalContainer from '../guild/invite/invite_modal_container';
+import CreateChannelModalContainer from '../guild/modal/create_channel_modal_container';
 
 class Main extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Main extends React.Component {
         </Switch>
         { (this.props.addGuild) ? <AddGuildModal hideAddGuild={this.props.hideAddGuild}/> : null }
         { (this.props.showInvite) ? <InviteModalContainer /> : null }
+        { (this.props.createChannel) ? <CreateChannelModalContainer /> : null }
       </div>
     );
   }

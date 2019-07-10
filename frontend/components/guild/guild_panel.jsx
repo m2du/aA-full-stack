@@ -7,18 +7,32 @@ import ChannelIndexContainer from '../channel/channel_index_container';
 class GuildPanel extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleServerActions = this.toggleServerActions.bind(this);
+    this.showActions = false;
+    this.guildDropdownClick = this.guildDropdownClick.bind(this);
+    this.windowListener = this.windowListener.bind(this);
   }
 
   render() {
-    const {user} = this.props;
+    const { user } = this.props;
     const guildName = (this.props.guild) ? this.props.guild.name : "Home";
     return (
       <div id='guild-panel'>
         <div id='guild-content'>
-          <header id='guild-header'>
+          <header id='guild-header' onClick={this.toggleServerActions}>
             <span>{guildName}</span>
-            <img onClick={this.props.showInviteModal} src={window.images.inviteIcon} />
+            <i id='server-actions-icon' className="fas fa-angle-down"></i>
           </header>
+          <div id='guild-header-dropdown' onClick={this.guildDropdownClick}>
+            <div id='guild-invite-item' className='guild-dropdown-option'>
+              <img src={window.images.inviteIcon} />
+              <label>Invite People</label>
+            </div>
+            <div id='channel-create-item' className='guild-dropdown-option'>
+              <img src={window.images.plusIcon} />
+              <label>Create Channel</label>
+            </div>
+          </div>
           <ChannelIndexContainer />
         </div>
         <div id='user-bar'>
@@ -34,6 +48,35 @@ class GuildPanel extends React.Component {
         </div>
       </div>
     )
+  }
+
+  windowListener(e) {
+    if (e.target.id !== 'guild-header') {
+      this.toggleServerActions();
+    }
+  }
+
+  toggleServerActions() {
+    if (this.showActions) {
+      document.getElementById('server-actions-icon').classList.remove('fa-rotate-180');
+      document.getElementById('guild-header-dropdown').classList.remove('visible');
+      window.removeEventListener('click', this.windowListener);
+    } else {
+      document.getElementById('server-actions-icon').classList.add('fa-rotate-180');
+      document.getElementById('guild-header-dropdown').classList.add('visible');
+      window.addEventListener('click', this.windowListener);
+    }
+
+    this.showActions = !this.showActions;
+  }
+
+  guildDropdownClick(e) {
+    let eleId = e.target.id;
+    if (eleId === 'guild-invite-item') {
+      this.props.showInviteModal();
+    } else if (eleId === 'channel-create-item') {
+      this.props.showCreateChannel();
+    }
   }
 }
 

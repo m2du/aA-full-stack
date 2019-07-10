@@ -23,10 +23,14 @@
     display: flex;
     align-items: center;
     transition: background-color .15s ease;
+    z-index: 2;
     cursor: pointer;
     box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 1.5px 0 rgba(0, 0, 0, .05), 0 2px 0 rgba(0, 0, 0, .05);
     span {
-      flex: 1;
+        flex: 1;
+    }
+    * {
+        pointer-events: none;
     }
 }
 
@@ -57,14 +61,14 @@
     padding: 0 10px;
     margin-bottom: 1px;
     i {
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-      color: red;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        color: red;
     }
 }
 
@@ -98,4 +102,66 @@
     color: #8e9297;
     font-size: 10px;
     line-height: 12px;
+}
+
+#server-actions-icon {
+    transition: transform .5s ease;
+}
+
+#guild-header-dropdown {
+    background-color: #2B2E32;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 224px;
+    margin: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .82), 0 1px 4px rgba(0, 0, 0, .1);
+    z-index: 1;
+    border-radius: 5px;
+    visibility: hidden;
+    transform: translate3d(0, -100%, 0);
+    transition: transform .2s ease;
+     :first-child {
+        border-radius: 5px 5px 0 0;
+    }
+     :last-child {
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+#guild-header-dropdown.visible {
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+    transition: transform .2s ease;
+}
+
+.guild-dropdown-option {
+    color: hsla(0, 0%, 100%, .6);
+    box-sizing: border-box;
+    display: flex;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    align-items: center;
+    img {
+        width: 18px;
+        height: 18px;
+        opacity: .8;
+        flex-shrink: 0;
+        margin-right: 14px;
+    }
+    * {
+        pointer-events: none;
+    }
+}
+
+.guild-dropdown-option:hover {
+    background-color: #202326;
+    color: white;
+}
+
+#guild-invite-item {
+    color: #7289da;
 }

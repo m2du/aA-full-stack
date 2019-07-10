@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :guilds, only: [:create, :index, :show, :update, :destroy] do
       resources :invites, only: [:create]
+      resources :channels, only: [:create]
     end
     resources :invites, only: [:show]
   end

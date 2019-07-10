@@ -7,7 +7,8 @@ import Main from './main';
 const msp = state => ({
   user: state.entities.users[state.session.id],
   addGuild: state.ui.guild.addGuild,
-  showInvite: state.ui.invite.showInvite
+  showInvite: state.ui.invite.showInvite,
+  createChannel: state.ui.channel.createChannel
 });
 
 const mdp = dispatch => ({
