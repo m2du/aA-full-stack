@@ -48,7 +48,7 @@ class GuildPanel extends React.Component {
             <p id='user-bar-name'>{user.username}</p>
             <p id='user-bar-tag'>#{user.tag}</p>
           </div>
-          <i className="fas fa-power-off" onClick={() => this.props.logout()}></i>
+          <i className="fas fa-sign-out-alt" onClick={() => this.props.logout()}></i>
         </div>
       </div>
     )

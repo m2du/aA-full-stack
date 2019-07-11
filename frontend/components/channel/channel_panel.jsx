@@ -17,7 +17,7 @@ class ChannelPanel extends React.Component {
             <div id='home-empty'>
               <div id='home-empty-content'>
                 <img src={window.images.wumpus} />
-                <p>Select a server or DM to start chatting!</p>
+                <p>Select a server to start chatting!</p>
               </div>
             </div> :
             <MessageIndexContainer />
