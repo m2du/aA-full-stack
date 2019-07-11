@@ -13,24 +13,25 @@ class MessageIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchMessages(this.props.match.params.channelId)
+      .then(action => console.log(action));
+
     App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
         received: data => {
-          this.setState({
-            messages: this.state.messages.concat(data.message)
-          });
+          this.props.receiveMessage(data.message);
         },
-        speak: function(data) {
-          return this.perform("speak", data);
-        }
+        speak: function(data) { return this.perform("speak", data); },
       }
     );
   }
 
   componentDidUpdate(prevProps) {
-    if (this.bottom.current) {
-      this.bottom.current.scrollIntoView();
+    this.bottom.current.scrollIntoView();
+    if (this.props.channelId && this.props.channelId !== prevProps.channelId) {
+      this.props.fetchMessages(this.props.match.params.channelId)
+        .then(action => console.log(action));
     }
   }
 
@@ -39,7 +40,7 @@ class MessageIndex extends React.Component {
       <div id='message-index'>
         <div id='message-list'>
           {
-            this.state.messages.map(message => (
+            this.props.messages.map(message => (
               <MessageItemContainer key={message.id} message={message} />
             ))
           }

@@ -30,3 +30,14 @@ export const selectGuildChannels = (state, guildId) => {
 
   return channels;
 }
+
+export const selectChannelMessages = (state, channelId) => {
+  let messages = [];
+  Object.values(state.entities.messages).forEach(message => {
+    if (message.channelId === parseInt(channelId)) {
+      messages.push(message);
+    }
+  });
+
+  return messages;
+}

@@ -9,7 +9,6 @@ class GuildDetail extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounted");
     let guildId = this.props.match.params.guildId;
     if (guildId === 'home') {
       return;

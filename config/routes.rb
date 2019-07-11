@@ -12,5 +12,8 @@ Rails.application.routes.draw do
       resources :channels, only: [:create]
     end
     resources :invites, only: [:show]
+    resources :channels, only: [] do 
+      resources :messages, only: [:index]
+    end
   end
 end
