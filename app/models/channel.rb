@@ -7,6 +7,7 @@
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  private    :boolean          default(FALSE)
 #
 
 class Channel < ApplicationRecord
@@ -15,4 +16,5 @@ class Channel < ApplicationRecord
   belongs_to :guild
 
   has_many :messages
+  has_many :private_subscriptions
 end

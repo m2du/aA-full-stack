@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :guilds, through: :memberships, source: :guild
   has_many :messages, foreign_key: :author_id
+  has_many :private_subscriptions
 
   has_one_attached :image
 

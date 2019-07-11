@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: channels
+# Table name: private_subscriptions
 #
 #  id         :bigint           not null, primary key
-#  guild_id   :integer          not null
-#  name       :string           not null
+#  user_id    :integer          not null
+#  channel_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  private    :boolean          default(FALSE)
 #
 
 require 'test_helper'
 
-class ChannelTest < ActiveSupport::TestCase
+class PrivateSubscriptionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
