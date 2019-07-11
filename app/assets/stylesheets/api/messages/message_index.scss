@@ -12,6 +12,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     flex-direction: column;
+    flex: 1 1 auto;
 }
 
 #message-list::-webkit-scrollbar {
@@ -151,8 +152,4 @@ hr.message-break {
     user-select: text;
     display: flex;
     padding-bottom: 3px;
-}
-
-#message-spacer {
-    flex: 1;
 }

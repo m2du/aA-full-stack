@@ -39,7 +39,6 @@ class MessageIndex extends React.Component {
     const messages = this.props.messages;
     return (
       <div id='message-index'>
-        <div id='message-spacer' />
         <div id='message-list'>
           {
             messages.map((message, idx) => {
