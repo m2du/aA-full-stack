@@ -65,7 +65,7 @@ class CreateGuildOption extends React.Component {
                   <label id='server-name-label' htmlFor='server-name-input'>Server Name</label>
                   <input id='server-name-input' type='text'
                     placeholder='Enter a server name'
-                    value={name} onChange={this.updateName} />
+                    value={name} onChange={this.updateName} required />
                 </div>
                 <div id='region-select'>
                   <label id='region-select-label'>Server Region</label>

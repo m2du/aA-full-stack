@@ -19,9 +19,13 @@ class GuildPanel extends React.Component {
     return (
       <div id='guild-panel'>
         <div id='guild-content'>
-          <header id='guild-header' onClick={this.toggleServerActions}>
+          <header id='guild-header' onClick={(guildName === 'Home') ? null : this.toggleServerActions}>
             <span>{guildName}</span>
-            <i id='server-actions-icon' className="fas fa-angle-down"></i>
+            {
+              (guildName === 'Home') ?
+                null :
+                <i id='server-actions-icon' className="fas fa-angle-down"></i>
+            }
           </header>
           <div id='guild-header-dropdown' onClick={this.guildDropdownClick}>
             <div id='guild-invite-item' className='guild-dropdown-option'>

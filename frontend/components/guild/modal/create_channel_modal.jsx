@@ -41,7 +41,7 @@ class CreateChannelModal extends React.Component {
           </header>
           <div id='create-channel-body'>
             <h5>Channel Name</h5>
-            <input type='text' value={this.state.name} onChange={this.updateName}/>
+            <input type='text' value={this.state.name} onChange={this.updateName} required/>
           </div>
           <div id='create-channel-actionbar'>
             <input id='create-channel-button' type="submit" value='Create Channel'/>

@@ -64,6 +64,8 @@
 }
 
 .guild-container.current-guild {
+    pointer-events: none;
+    user-select: none;
     ~.guild-select-bar span {
         height: 80%;
         opacity: 1;
