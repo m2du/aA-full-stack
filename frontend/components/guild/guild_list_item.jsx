@@ -1,16 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 import DiscordSVG from '../discord_svg';
 
 class GuildListItem extends React.Component {
   render() {
+    const currentGuildId = this.props.match.params.guildId;
     const guild = this.props.guild;
     const imageUrl = (guild.imageUrl) ? guild.imageUrl : "";
     return (
       <div className='guild-item'>
-        <div className='guild-container'>
-          <Link className='guild-link' 
+        <div className={`guild-container ${(currentGuildId === guild.id.toString()) ? 'current-guild' : ''}`}>
+          <Link className={`guild-link ${(currentGuildId === guild.id.toString()) ? 'current-guild' : ''}`} 
             style={{backgroundImage: `url(${imageUrl})`}}
             to={`/channels/${guild.id}`} replace>
             { 
@@ -29,4 +30,4 @@ class GuildListItem extends React.Component {
   }
 }
 
-export default GuildListItem;
+export default withRouter(GuildListItem);

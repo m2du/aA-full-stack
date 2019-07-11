@@ -17,7 +17,7 @@
     width: 72px;
     flex-shrink: 0;
     position: relative;
-    > * {
+    >* {
         margin-bottom: 8px;
     }
 }
@@ -48,12 +48,27 @@
     transition: border-radius .15s ease-out, background-color .15s ease-out, color .15s ease-out;
 }
 
+.guild-link.current-guild {
+    border-radius: 32%;
+    background-color: #7289da;
+    color: white;
+}
+
 .guild-container:hover {
     ~.guild-select-bar span {
         height: 20px;
         opacity: .7;
         transform: translate3d(0px, 0px, 0px);
         transition: height .2s ease-in, transform .2s ease-in;
+    }
+}
+
+.guild-container.current-guild {
+    ~.guild-select-bar span {
+        height: 80%;
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px);
+        transition: height .1s ease, transform .2s ease-in;
     }
 }
 
