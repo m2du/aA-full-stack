@@ -25,7 +25,9 @@ class GuildDetail extends React.Component {
   componentDidUpdate(prevProps) {
     let guildId = this.props.match.params.guildId;
     
-    if (prevProps.match.params.guildId == guildId) return;
+    if (prevProps.match.params.guildId == guildId) {
+      return;
+    }
 
     if (guildId === 'home') {
       return;
