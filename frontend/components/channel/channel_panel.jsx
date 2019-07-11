@@ -13,14 +13,14 @@ class ChannelPanel extends React.Component {
     return (
       <div id='channel-panel'>
         {
-          (this.props.match.params.channelId) ?
-            <MessageIndexContainer /> :
+          (!this.props.match.params.channelId && this.props.match.params.guildId === 'home') ?
             <div id='home-empty'>
               <div id='home-empty-content'>
                 <img src={window.images.wumpus} />
                 <p>Select a server or DM to start chatting!</p>
               </div>
-            </div>
+            </div> :
+            <MessageIndexContainer />
         }
         {
           (this.props.match.params.guildId === 'home') ?

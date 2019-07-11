@@ -27,8 +27,6 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: :author_id
   has_many :private_subscriptions
 
-  has_one_attached :image
-
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil

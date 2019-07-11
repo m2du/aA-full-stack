@@ -12,6 +12,9 @@ class GuildDetail extends React.Component {
     let guildId = this.props.match.params.guildId;
     if (guildId === 'home') {
       return;
+    } else if (this.props.channels.length > 0) {
+      const channelId = this.props.channels[0].id;
+      this.props.history.replace(`/channels/${guildId}/${channelId}`);
     } else {
       this.props.fetchGuild(guildId).then(
         action => {
@@ -31,6 +34,9 @@ class GuildDetail extends React.Component {
 
     if (guildId === 'home') {
       return;
+    } else if (this.props.channels.length > 0) {
+      const channelId = this.props.channels[0].id;
+      this.props.history.replace(`/channels/${guildId}/${channelId}`);
     } else {
       this.props.fetchGuild(guildId).then(
         action => {

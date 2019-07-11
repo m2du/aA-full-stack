@@ -8,8 +8,8 @@ class Api::GuildsController < ApplicationController
     @guild.owner_id = current_user.id
 
     if @guild.save
-      Membership.new(guild_id: @guild.id, user_id: current_user.id).save
-      Channel.new(guild_id: @guild.id, name: 'general')
+      Membership.create!(guild_id: @guild.id, user_id: current_user.id)
+      Channel.create!(guild_id: @guild.id, name: 'general')
       render :show
     else
       render json: @guild.errors.full_messages

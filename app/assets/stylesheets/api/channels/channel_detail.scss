@@ -28,3 +28,23 @@
   display: flex;
   flex: 1 1 auto;
 }
+
+#channel-header-content {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  color: white;
+  svg {
+    color: #72767d;
+    width: 24px;
+    height: 24px;
+    -webkit-app-region: no-drag;
+    margin: 0 8px;
+  }
+  div {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
