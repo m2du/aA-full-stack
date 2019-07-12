@@ -14,11 +14,23 @@ The project was designed and built within a 10-day timeframe.
  * Users may invite others to their servers by generating an Instant Invite link which will allow users to join with a single click.
  * Servers may contain multiple chat channels, each with their individual live feed of messages.
 
- ## Project Design
- 
- Disboard was designed to be as close to the original as possible with a basic suite of features considering the short development window. The goal was to have implemented features run smoothly and bug-free. Keeping code manageable was prioritized over cloning every major feature of the target app.
+### Customization
 
- ## Technologies
+![](https://github.com/m2du/disboard/blob/master/readme_images/create_server.png)
+
+Users are able to upload a custom server icon when creating a new server. This allows each server to have its own unique appearance.
+
+### Quick Navigation
+
+![](https://github.com/m2du/disboard/blob/master/readme_images/servers_and_channels.png)
+
+Navigation options are located on the left side of the screen. The server and channel list design allows users to instantly switch between servers and channels with a single click.
+
+## Project Design
+
+Disboard was designed to be as close to the original as possible with a basic suite of features considering the short development window. The goal was to have implemented features run smoothly and bug-free. Keeping code manageable was prioritized over cloning every major feature of the target app.
+
+## Technologies
 
 Rails was chosen due to its out-of-the-box support for relational databases and RESTful architecture. Given the smaller scale of this project, convenience and speed were prioritized over scalability.
 
