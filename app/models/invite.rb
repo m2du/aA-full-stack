@@ -20,7 +20,7 @@ class Invite < ApplicationRecord
 
   def ensure_unique_url
     begin
-      url = SecureRandom.urlsafe_base64
+      url = SecureRandom.urlsafe_base64[0...10]
     end while Invite.find_by(url: url)
     self.url = url
   end
