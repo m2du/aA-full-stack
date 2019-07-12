@@ -1,8 +1,8 @@
 class Api::PrivateSubscriptionsController < ApplicationController
   def index
     @subs = PrivateSubscription.joins("JOIN private_subscriptions AS other ON other.channel_id=private_subscriptions.channel_id")
-      .where(["private_subscriptions.user_id = ?", current_user.id])
-      .select("private_subscriptions.id, private_subscriptions.channel_id, other.user_id AS to").distinct
+      .where(["private_subscriptions.user_id = ? AND other.user_id != ?", current_user.id, current_user.id])
+      .select("private_subscriptions.id, private_subscriptions.channel_id, other.user_id AS user_id").includes(:channel, :user).distinct
   end
 
   def create

@@ -11,7 +11,11 @@ class GuildDetail extends React.Component {
   componentDidMount() {
     let guildId = this.props.match.params.guildId;
     if (guildId === 'home') {
-      return;
+      this.props.fetchDMs();
+      if (this.props.channels[0]) {
+        const channelId = this.props.channels[0].id;
+        this.props.history.replace(`/channels/${guildId}/${channelId}`);
+      }
     } else if (this.props.channels.length > 0) {
       const channelId = this.props.channels[0].id;
       this.props.history.replace(`/channels/${guildId}/${channelId}`);
@@ -33,7 +37,12 @@ class GuildDetail extends React.Component {
     }
 
     if (guildId === 'home') {
-      return;
+      this.props.fetchDMs();
+      if (this.props.channels[0]) {
+        console.log('hello');
+        const channelId = this.props.channels[0].id;
+        this.props.history.replace(`/channels/${guildId}/${channelId}`);
+      }
     } else if (this.props.channels.length > 0) {
       const channelId = this.props.channels[0].id;
       this.props.history.replace(`/channels/${guildId}/${channelId}`);

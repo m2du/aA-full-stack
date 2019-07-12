@@ -22,11 +22,20 @@ export const selectGuildMembers = (state, guildId) => {
 
 export const selectGuildChannels = (state, guildId) => {
   let channels = [];
-  Object.values(state.entities.channels).forEach(channel => {
-    if (channel.guildId === parseInt(guildId)) {
-      channels.push(channel);
-    }
-  });
+  if (guildId === 'home') {
+    channels = selectDMs(state).map(dm => ({
+      id: dm.channelId,
+      guildId: 'home',
+      name: dm.user.username,
+      tag: dm.user.tag
+    }));
+  } else {
+    Object.values(state.entities.channels).forEach(channel => {
+      if (channel.guildId === parseInt(guildId)) {
+        channels.push(channel);
+      }
+    });
+  }
 
   return channels;
 }
@@ -40,4 +49,12 @@ export const selectChannelMessages = (state, channelId) => {
   });
 
   return messages;
+}
+
+export const selectDMs = state => {
+  let dms = Object.values(state.entities.dms);
+  return dms.map(dm => ({
+    channelId: dm.channelId,
+    user: state.entities.users[dm.userId]
+  }));
 }

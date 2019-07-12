@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {getUserColor} from '../../utils/user_color_util';
+import { getUserColor } from '../../utils/user_color_util';
 import DiscordSVG from '../discord_svg';
 
 class DirectMessagePopup extends React.Component {
@@ -16,11 +16,15 @@ class DirectMessagePopup extends React.Component {
 
   componentDidMount() {
     window.addEventListener('click', this.hide);
-    document.getElementById('user-popup-input').focus();
+    if (this.props.currentUserId !== this.props.user.id) {
+      document.getElementById('user-popup-input').focus();
+    }
   }
 
   componentDidUpdate() {
-    document.getElementById('user-popup-input').focus();
+    if (this.props.currentUserId !== this.props.user.id) {
+      document.getElementById('user-popup-input').focus();
+    }
   }
 
   componentWillUnmount() {
@@ -34,7 +38,7 @@ class DirectMessagePopup extends React.Component {
   }
 
   updateMessage(e) {
-    this.setState({message: e.target.value});
+    this.setState({ message: e.target.value });
   }
 
   handleSubmit(e) {
@@ -42,6 +46,20 @@ class DirectMessagePopup extends React.Component {
     const message = this.state.message;
     if (message) {
       this.props.hideDMPopup();
+      this.props.createDM(this.props.user.id).then(
+        action => {
+          console.log(action.dm);
+          App.cable.subscriptions.subscriptions[0].speak({
+            message: {
+              body: this.state.message,
+              channel_id: action.dm.channel.id,
+              author_id: this.props.currentUserId
+            }
+          });
+
+          this.props.history.replace(`/channels/home/${action.dm.channel.id}`)
+        }
+      );
     }
   }
 
@@ -60,10 +78,14 @@ class DirectMessagePopup extends React.Component {
               <span className='tag'>#{user.tag}</span>
             </div>
           </header>
-          <form id='user-popup-form' onSubmit={this.handleSubmit}>
-            <input id='user-popup-input' type="text" placeholder={`Message @${user.username}`}
-              value={this.state.message} onChange={this.updateMessage} autoComplete='off'/>
-          </form>
+          {
+            (this.props.currentUserId !== user.id) ?
+              <form id='user-popup-form' onSubmit={this.handleSubmit}>
+                <input id='user-popup-input' type="text" placeholder={`Message @${user.username}`}
+                  value={this.state.message} onChange={this.updateMessage} autoComplete='off' />
+              </form> :
+              null
+          }
         </div>
       </div>
     );
