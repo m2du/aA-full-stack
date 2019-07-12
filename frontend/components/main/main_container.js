@@ -8,7 +8,8 @@ const msp = state => ({
   user: state.entities.users[state.session.id],
   addGuild: state.ui.guild.addGuild,
   showInvite: state.ui.invite.showInvite,
-  createChannel: state.ui.channel.createChannel
+  createChannel: state.ui.channel.createChannel,
+  dmPopup: state.ui.dm.user
 });
 
 const mdp = dispatch => ({

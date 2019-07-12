@@ -67,6 +67,16 @@
     box-sizing: border-box;
     padding: 8px;
     margin: 1px 0 1px 8px;
+    position: relative;
+    * {
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+.user-list-item:hover {
+    background-color: #36393F;
+    cursor: pointer;
 }
 
 .user-list-name {

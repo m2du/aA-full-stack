@@ -6,6 +6,7 @@ import GuildDetailContainer from '../guild/guild_detail_container';
 import AddGuildModal from '../guild/modal/add_guild_modal';
 import InviteModalContainer from '../guild/invite/invite_modal_container';
 import CreateChannelModalContainer from '../guild/modal/create_channel_modal_container';
+import DirectMessagePopupContainer from '../user/direct_message_popup_container';
 
 class Main extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class Main extends React.Component {
         { (this.props.addGuild) ? <AddGuildModal hideAddGuild={this.props.hideAddGuild}/> : null }
         { (this.props.showInvite) ? <InviteModalContainer /> : null }
         { (this.props.createChannel) ? <CreateChannelModalContainer /> : null }
+        { (this.props.dmPopup) ? <DirectMessagePopupContainer user={this.props.dmPopup} /> : null }
       </div>
     );
   }

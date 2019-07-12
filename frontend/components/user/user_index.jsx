@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UserListItem from './user_list_item';
+import UserListItemContainer from './user_list_item_container';
 
 class UserIndex extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class UserIndex extends React.Component {
         <header id='user-list-header'>Users—{users.length}</header>
         <ul>
           {
-            users.map(user => <UserListItem key={user.id} user={user} />)
+            users.map(user => <UserListItemContainer key={user.id} user={user} />)
           }
         </ul>
       </div>
