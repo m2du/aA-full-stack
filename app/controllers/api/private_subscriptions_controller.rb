@@ -17,11 +17,7 @@ class Api::PrivateSubscriptionsController < ApplicationController
       own_sub = PrivateSubscription.create!(channel_id: channel.id, user_id: current_user.id)
       # create other subscription
       other_sub = PrivateSubscription.create!(channel_id: channel.id, user_id: dm_params[:user_id])
-      @sub = {
-        id: own_sub.id,
-        channel_id: channel.id,
-        to: dm_params[:user_id]
-      }
+      @sub = PrivateSubscription.dm_exists?(current_user.id, dm_params[:user_id])
       render :show
     end
   end

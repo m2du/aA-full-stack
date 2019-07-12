@@ -40,8 +40,10 @@ class GuildDetail extends React.Component {
       this.props.fetchDMs();
       if (this.props.channels[0]) {
         console.log('hello');
-        const channelId = this.props.channels[0].id;
-        this.props.history.replace(`/channels/${guildId}/${channelId}`);
+        if (!this.props.match.params.channelId) {
+          const channelId = this.props.channels[0].id;
+          this.props.history.replace(`/channels/${guildId}/${channelId}`);
+        }
       }
     } else if (this.props.channels.length > 0) {
       const channelId = this.props.channels[0].id;
