@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :channels, only: [] do 
       resources :messages, only: [:index]
     end
+    resources :private_subscriptions, only: [:index, :create]
   end
 end

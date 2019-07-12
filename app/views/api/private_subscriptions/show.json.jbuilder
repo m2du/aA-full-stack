@@ -1,0 +1,1 @@
+json.partial! 'api/private_subscriptions/dm', dm: @sub
