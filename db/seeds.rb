@@ -25,6 +25,8 @@ ActiveRecord::Base.transaction do
   }
 
   private_user = User.create!(private_user_params)
+  Guild.create!(name: 'Private', owner_id: private_user.id)
+
   demo_user = User.create!(demo_user_params)
 
   ngnl_users = [
@@ -37,16 +39,65 @@ ActiveRecord::Base.transaction do
     {email: 'izuna@disboard.game', username: 'Izuna', password: 'letsplayagain'}
   ]
 
+  
+  p 'Seed NGNL Users'
+  
   ngnl_users.map! { |user| User.create!(user) }
-
-  Guild.create!(name: 'Private', owner_id: private_user.id)
+  
+  ngnl_channels = ['avant-heim', 'elven-gard', 'eastern-federation', 'oceando', 'harden-fell', 'elchea']
+  
+  p 'Seed NGNL Guild'
 
   disboard_guild = Guild.create!(name: 'Disboard', owner_id: ngnl_users[0].id)
   imageFile = open('https://disboard-seeds.s3-us-west-1.amazonaws.com/disboard_icon.jpg')
   disboard_guild.image.attach(io: imageFile, filename: 'disboard_icon.jpg')
   Channel.create!(guild_id: disboard_guild.id, name: 'general')
+  
+  p 'Seed NGNL Channels'
+  
+  ngnl_channels.map! { |channel| Channel.create!(guild_id: disboard_guild.id, name: channel) }
+
+  p 'Seed NGNL Memberships'
+
   ngnl_users.each { |user| Membership.create!(guild_id: disboard_guild.id, user_id: user.id)}
   Membership.create!(guild_id: disboard_guild.id, user_id: demo_user.id)
+
+  ngnl_quotes = [
+    {body: "Life is not a game of luck. If you wanna win, work hard.", user: 1},
+    {body: "There is more than one way to win a game. You can win without fighting!", user: 1},
+    {body: "It's our job as normal people to ensure the potential of those misunderstood ones are realized.", user: 1},
+    {body: "Accept that because we were born with nothing, we can become anything!", user: 1},
+    {body: "Because of our weakness, we trained our eyes, ears, and the ability to think. Learning how to survive, that's our trait as humans! The human species can’t use magic and can’t even perceive it – but because we are weak, we have the wisdom to run away from magic and the intelligence to see through it. We don’t have any extraordinary senses. But because we are weak, by learning and gaining experience, we gained the wisdom to achieve the unachievable.", user: 1},
+    {body: "There's no more trusted observer than someone who suspects you.", user: 1},
+    {body: "In fairy tales, when the protagonists end up in a different world, they do their best to get back home, right? But who would want to go back to a world like that?", user: 1},
+    {body: "That’s why we’ll never win.’ If that’s what you’re thinking, you’re doomed to fail.", user: 1},
+    {body: "In every time, in every world, the strong polish their fangs while the weak polish their wisdom.", user: 1},
+    {body: "If someone wishes to fly, will that let him grow wings? I don’t think so. You don’t change yourself. You change how you approach the problem.", user: 1},
+    {body: "Sorry. Our world isn’t as nice a place as yours. When it comes to war and killing, we have far more expertise than you do.", user: 1},
+    {body: "Huh? In a real war, what fool waits for their enemy’s 'turn'?", user: 1},
+    {body: "The two of us will live as the weak, fight as the weak, and defeat the strong as only the weak can!", user: 1},
+    {body: "It's better for a man to be slow than fast.", user: 1},
+    {body: "An idiot that knows he’s an idiot, is even harder to deal with than an idiot that thinks he isn’t.", user: 1},
+    {body: "Even if I screw up, Shiro’s there for me. That’s why the Blank always wins.", user: 1},
+    {body: "'Checkmate' doesn’t mean you’ve simply cornered the enemy king. It’s a declaration that the enemy king is yours. That’s why I said it the first time I met you.", user: 1},
+    {body: "The natural enemy of the strong is the weak, but the natural enemy of the weak is not the strong – it is the ones that are even weaker.", user: 1},
+    {body: "What kind of king makes his men fight at the front line while he sits behind them relaxing?", user: 1},
+    {body: "Whats the probability of drawing the ace of spades from a deck with no jokers? Normaly it would be 1/50. But what if its a brand new deck? The position of cards in a new deck are typically identical, so that means if you take out the jokers and draw the card at the very bottom, it’s the ace of spades almost 100% of the time. Oh that’s right! I didn’t say a word about it being a new deck. Rather, you didn’t ask. Being in the 'know' gives you the power to turn the probability of winning from 1.92% to 100%. The more knowledge of a party will be the inevitable victor.", user: 1},
+    {body: "If you think physical toughness and longevity make you strong, you must be seriously lacking in the brain department.", user: 1},
+    {body: "We do not stop playing games because we grow old, we grow old because we stop playing.", user: 1},
+    {body: "Don't you dare look down on humans.", user: 1},
+    {body: "Throughout all of history, no wise king has ever forced his army to obey him through oppression. People will only truly fight for what is right. And there is only one thing that is truly right in this world! The one true, unchanging righteousness in the world is… cuteness! Cute makes right! All our needs, desires, and instincts seek cuteness, and it is for cuteness that we will give everything we have! That’s just the way men are!", user: 1},
+    {body: "Oppression. Rule by fear. dictatorships. It’s a strange thing. Throughout history, for some reason, the lives of such rulers have always ended in the same way: Assassination by someone who isn’t even part of a combat unit.", user: 1},
+    {body: "In reality, the least interesting answer is usually the correct one.", user: 0},
+    {body: "What do you think about your world? Is it fun? Is it easy to live in?", user: 0},
+    {body: "Chess is no different than tic-tac-toe.", user: 2},
+    {body: "Fulfilled people are just an urban legend.", user: 2},
+    {body: "A temporary defeat is nothing if it leads to ultimate victory!", user: 3},
+  ]
+
+  p 'Seed NGNL Messages'
+
+  ngnl_quotes.shuffle.each { |quote| Message.create!(body: quote[:body], channel_id: ngnl_channels.sample.id, author_id: ngnl_users[quote[:user]].id)}
 
   league_users = [
     {email: 'aatrox@league.legends', username: 'Aatrox', password: 'leagueoflegends'},
@@ -369,6 +420,9 @@ ActiveRecord::Base.transaction do
   shadow_isles = Channel.create!(guild_id: league_guild.id, name: 'shadow-isles')
   shurima = Channel.create!(guild_id: league_guild.id, name: 'shurima')
   the_void = Channel.create!(guild_id: league_guild.id, name: 'the-void')
+
+  p 'Seed League Memberships'
+
   Membership.create!(guild_id: league_guild.id, user_id: ngnl_users[0].id)
   league_users.each { |user| Membership.create!(guild_id: league_guild.id, user_id: user.id)}
 
