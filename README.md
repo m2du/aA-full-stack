@@ -1,10 +1,10 @@
 # Disboard
 
-[Live Demo][https://aa-disboard.herokuapp.com/]
+[Live Demo](https://aa-disboard.herokuapp.com/)
 
 Disboard is a live chat website targetting gamers, inspired by Discord. It makes use of a Rails/PostgreSQL backend with React.js and Redux on the frontend. ActionCable is used to implement websocket connections for live chat updates.
 
-The project was designed and built within 10-day timeframe.
+The project was designed and built within a 10-day timeframe.
 
 ## Features
  * Secure frontend to backend user authentication using BCrypt.
