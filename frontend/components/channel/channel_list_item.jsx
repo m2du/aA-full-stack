@@ -22,8 +22,10 @@ class ChannelListItem extends React.Component {
   }
 
   clickChannel(e) {
-    document.querySelector('.current-channel')
-      .classList.remove('current-channel');
+    if (this.props.match.params.channelId) {
+        document.querySelector('.current-channel')
+            .classList.remove('current-channel');
+    }
     e.currentTarget.classList.add('current-channel');
 
     const {guildId, id} = this.state;
